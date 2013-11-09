@@ -1,0 +1,31 @@
+syntax on
+filetype plugin indent on
+
+set ts=4
+let g:neocomplcache_enable_at_startup = 1 
+"helptags ~/.vim/doc
+
+hi link mkdLineBreak Underlined
+let g:vim_markdown_folding_disabled=1
+
+set nocompatible
+set autoread
+set autoindent
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4
+set mouse=a
+set t_Co=256
+
+
+let mapleader = ','
+nnoremap <leader>fox  :silent! !firefox %<CR>
+
+execute pathogen#infect()
+
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * wincmd p
+
+autocmd BufNewFile *.clj 0r ~/.vim/templates/clojure.tpl
+autocmd BufNewFile *.vim 0r ~/.vim/templates/vim.tpl
+
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%>80v.\+/
